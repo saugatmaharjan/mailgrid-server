@@ -4,6 +4,7 @@
 
 # enviroment variables
 .env
+.env.developent
 
 # Logs
 logs
