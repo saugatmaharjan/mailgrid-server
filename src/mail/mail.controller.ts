@@ -8,7 +8,6 @@ export class MailController {
 
   @Post()
   sendEmail(@Body() data: IMail) {
-    console.log('controller', data);
     return this.mailService.send(data);
   }
 }
