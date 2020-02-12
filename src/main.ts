@@ -7,6 +7,6 @@ async function bootstrap() {
   app.enableCors({
     origin: 'https://inspiring-kare-d8a73a.netlify.com',
   });
-  await app.listen(process.env.PORT);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
