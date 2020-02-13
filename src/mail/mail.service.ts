@@ -5,16 +5,6 @@ const mailgun = require('mailgun-js')({
 });
 const sgMail = require('@sendgrid/mail');
 
-const promised = function(mailData: any): Promise<{ err: any; res: any }> {
-  return new Promise((resolve, reject) => {
-    mailgun.messages().send(mailData, function(err, res) {
-      resolve({
-        err,
-        res,
-      });
-    });
-  });
-};
 @Injectable()
 export class MailService {
   constructor() {
@@ -24,7 +14,7 @@ export class MailService {
   sendThroughMailgun(data): Promise<{ err: any; res: any }> {
     return new Promise((resolve, reject) => {
       mailgun.messages().send(data, function(err, res) {
-        resolve({ err: true, res });
+        resolve({ err, res });
       });
     });
   }
