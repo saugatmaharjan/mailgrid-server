@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Query, HttpCode } from '@nestjs/common';
 
 import { MailService } from './mail.service';
 
@@ -7,7 +7,8 @@ export class MailController {
   constructor(private mailService: MailService) {}
 
   @Post()
-  sendEmail(@Body() data: IMail) {
-    return this.mailService.send(data);
+  @HttpCode(200)
+  async sendEmail(@Body() data: IMail) {
+    return await this.mailService.send(data);
   }
 }
